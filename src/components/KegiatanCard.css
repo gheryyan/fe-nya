@@ -1,0 +1,30 @@
+/* src/components/KegiatanCard.css */
+.kegiatan-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  width: 100%;
+}
+
+.kegiatan-card .card-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.kegiatan-card .card-content {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+.kegiatan-card .card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.kegiatan-card .MuiCardActions-root {
+  margin-top: auto; 
+}
