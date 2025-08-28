@@ -104,7 +104,7 @@ const StrukturDesa = () => {
 
             {/* Bagian 3: Data Dinamis Perangkat Desa (dari API) */}
             <Typography variant="h4" component="h2" gutterBottom align="center" sx={{ fontWeight: 'bold', mb: 4 }}>
-                Daftar Perangkat Desa
+                Daftar Lembaga Desa
             </Typography>
             <Grid container spacing={4} justifyContent="center">
                 {perangkatDesa.length > 0 ? (

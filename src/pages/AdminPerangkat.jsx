@@ -125,11 +125,11 @@ const AdminPerangkat = () => {
   return (
     <Box>
       <Typography variant="h4" component="h1" gutterBottom>
-        Halaman Admin Perangkat Desa
+        Halaman Admin Lembaga Desa
       </Typography>
       <Paper sx={{ p: 3, mb: 4 }}>
         <Typography variant="h5" component="h2" gutterBottom>
-          {formData.id ? 'Edit Data Perangkat Desa' : 'Tambah Perangkat Desa Baru'}
+          {formData.id ? 'Edit Data Lembaga Desa' : 'Tambah Lembaga Desa Baru'}
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
           <TextField
@@ -181,7 +181,7 @@ const AdminPerangkat = () => {
       </Paper>
       <Paper sx={{ p: 5 }}>
         <Typography variant="h5" component="h2" gutterBottom>
-          Daftar Perangkat Desa
+          Daftar Lembaga Desa
         </Typography>
         <TableContainer>
           <Table>

@@ -9,7 +9,7 @@ import Struktur from './pages/struktur';
 import Kegiatan from './pages/kegiatan';
 import KegiatanDetail from './pages/KegiatanDetail';
 import Kontak from './pages/kontak';
-import Produk from './pages/Produk';
+import Produk from './pages/produk';
 import ProdukDetail from './pages/ProdukDetail';
 import Galeri from './pages/galeri';
 import Ppid from './pages/ppid';

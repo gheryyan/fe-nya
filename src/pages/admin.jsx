@@ -66,7 +66,7 @@ const AdminPage = () => {
 
   const menuItems = [
     { text: 'Kegiatan', icon: <EventNoteIcon />, path: '/admin/kegiatan' },
-    { text: 'Perangkat Desa', icon: <PeopleIcon />, path: '/admin/perangkat' },
+    { text: 'Lembaga Desa', icon: <PeopleIcon />, path: '/admin/perangkat' },
     { text: 'Struktur Desa', icon: <AccountTreeIcon />, path: '/admin/struktur' },
     { text: 'Potensi Desa', icon: <StorefrontIcon />, path: '/admin/potensi' },
     { text: 'Produk', icon: <StorefrontIcon />, path: '/admin/produk' },
