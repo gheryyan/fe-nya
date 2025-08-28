@@ -62,12 +62,12 @@ export default function PotensiDetail() {
       <Typography variant="h6" color="text.secondary" gutterBottom>
         Kategori: {potensi.category}
       </Typography>
-      <Box sx={{ my: 4 }}>
+      <Box sx={{ my: 1 }}>
         <CardMedia
           component="img"
           image={`http://localhost:8000${potensi.image}`}
           alt={potensi.title}
-          sx={{ maxHeight: 500, objectFit: 'cover', borderRadius: '8px' }}
+          sx={{ maxHeight: 400, maxWidth:900, objectFit: 'cover', borderRadius: '8px' }}
         />
       </Box>
       <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>

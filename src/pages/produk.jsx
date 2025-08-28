@@ -59,7 +59,7 @@ export default function Produk() {
         </Container>
       </Box>
 
-      <Box sx={{ py: 5 }}>
+      <Box sx={{ py: 2 }}>
         <Container>
           <Typography variant="h4" component="h2" gutterBottom>
             Daftar Produk
