@@ -137,7 +137,7 @@ export default function Potensi() {
                         sx={{ height: 250, objectFit: 'cover' }}
                       />
                     )}
-                    <CardContent sx={{ textAlign: 'center', flexGrow: 1 }}>
+                    <CardContent sx={{ textAlign: 'left', flexGrow: 1 }}>
                       <Typography variant="h6" gutterBottom>
                         {item.title}
                       </Typography>
