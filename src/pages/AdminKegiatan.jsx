@@ -213,7 +213,7 @@ const AdminKegiatan = () => {
                   <TableCell>
                     {kegiatan.image && (
                       <img
-                        src={`http://www.web-gws.my.id${kegiatan.image}`}
+                        src={`https://www.web-gws.my.id${kegiatan.image}`}
                         alt={kegiatan.judul}
                         style={{
                           width: '100px',

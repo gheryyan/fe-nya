@@ -12,7 +12,7 @@ function KegiatanCard({ kegiatan }) {
       <CardMedia
         component="img"
         className="card-image"
-        image={`http://www.web-gws.my.id${kegiatan.image}`}
+        image={`https://www.web-gws.my.id${kegiatan.image}`}
         alt={kegiatan.judul}
       />
       <CardContent className="card-content">

@@ -23,7 +23,7 @@ export default function ProdukCard({ produk }) {
       <CardMedia
         component="img"
         height="200"
-        image={`http://www.web-gws.my.id${produk.image}`}
+        image={`https://www.web-gws.my.id${produk.image}`}
         alt={produk.nama_produk}
         sx={{ objectFit: 'cover' }}
       />

@@ -195,7 +195,7 @@ const AdminPerangkat = () => {
                   <TableCell>
                     {perangkat.foto && (
                       <img
-                        src={`http://www.web-gws.my.id${perangkat.foto}`}
+                        src={`https://www.web-gws.my.id${perangkat.foto}`}
                         alt={perangkat.nama}
                         style={{ width: '100px', height: 'auto', borderRadius: '4px' }}
                       />

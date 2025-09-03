@@ -18,7 +18,7 @@ export default function Produk() {
   useEffect(() => {
     const fetchProduks = async () => {
       try {
-        const response = await axios.get('http://www.web-gws.my.id/api/produk');
+        const response = await axios.get('https://www.web-gws.my.id/api/produk');
         setProduks(response.data);
       } catch (err) {
         setError('Gagal memuat data produk.');

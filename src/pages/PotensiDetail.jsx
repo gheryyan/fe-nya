@@ -18,7 +18,7 @@ export default function PotensiDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://www.web-gws.my.id/api/potensi/${id}`) // Ambil data berdasarkan ID
+      .get(`https://www.web-gws.my.id/api/potensi/${id}`) // Ambil data berdasarkan ID
       .then((res) => {
         setPotensi(res.data);
         setLoading(false);
@@ -65,7 +65,7 @@ export default function PotensiDetail() {
       <Box sx={{ my: 1 }}>
         <CardMedia
           component="img"
-          image={`http://www.web-gws.my.id${potensi.image}`}
+          image={`https://www.web-gws.my.id${potensi.image}`}
           alt={potensi.title}
           sx={{ maxHeight: 400, maxWidth:900, objectFit: 'cover', borderRadius: '8px' }}
         />

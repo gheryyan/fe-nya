@@ -33,7 +33,7 @@ export default function PpidForm() {
     setAlert({ show: false, message: '', severity: '' });
 
     try {
-      const response = await api.post('http://www.web-gws.my.id/api/pengaduan', form);
+      const response = await api.post('https://www.web-gws.my.id/api/pengaduan', form);
       console.log('Pengaduan berhasil dikirim:', response.data);
       setAlert({ show: true, message: 'Permohonan/pengaduan Anda berhasil dikirim!', severity: 'success' });
       setForm({

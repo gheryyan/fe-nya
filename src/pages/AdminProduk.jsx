@@ -211,7 +211,7 @@ export default function AdminProduk() {
                 <TableCell>{produk.deskripsi_singkat}</TableCell>
                 <TableCell>{produk.harga}</TableCell>
                 <TableCell>
-                  <img src={`http://www.web-gws.my.id${produk.image}`} alt={produk.nama_produk} style={{ width: '100px', height: 'auto' }} />
+                  <img src={`https://www.web-gws.my.id${produk.image}`} alt={produk.nama_produk} style={{ width: '100px', height: 'auto' }} />
                 </TableCell>
                 <TableCell>
                   <Button onClick={() => handleEdit(produk)} variant="outlined" color="primary" size="small">

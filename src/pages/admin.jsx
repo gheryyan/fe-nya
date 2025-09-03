@@ -41,7 +41,7 @@ const AdminPage = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://www.web-gws.my.id/api/logout', {}, {
+      await axios.post('https://www.web-gws.my.id/api/logout', {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
     } catch (err) {

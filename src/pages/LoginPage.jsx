@@ -29,7 +29,7 @@ export default function LoginPage() {
 
     try {
       const response = await axios.post(
-        'http://www.web-gws.my.id/api/login',
+        'https://www.web-gws.my.id/api/login',
         {
           email: form.email,
           password: form.password,

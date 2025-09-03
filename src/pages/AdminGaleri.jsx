@@ -150,7 +150,7 @@ export default function AdminGaleri() {
                 <TableCell>
                   <CardMedia
                     component="img"
-                    image={`http://www.web-gws.my.id${galeri.image}`}
+                    image={`https://www.web-gws.my.id${galeri.image}`}
                     alt={galeri.judul}
                     sx={{ width: 100, height: 100, objectFit: 'cover' }}
                   />

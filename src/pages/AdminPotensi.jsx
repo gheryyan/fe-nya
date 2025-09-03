@@ -180,7 +180,7 @@ const AdminPotensi = () => {
                             potensi.map((item) => (
                                 <TableRow key={item.id}>
                                     <TableCell>
-                                        <img src={`http://www.web-gws.my.id${item.image}`} alt={item.title} style={{ width: '100px', height: 'auto' }} />
+                                        <img src={`https://www.web-gws.my.id${item.image}`} alt={item.title} style={{ width: '100px', height: 'auto' }} />
                                     </TableCell>
                                     <TableCell>{item.category}</TableCell>
                                     <TableCell>{item.title}</TableCell>

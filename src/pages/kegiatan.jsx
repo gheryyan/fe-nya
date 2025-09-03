@@ -19,7 +19,7 @@ function Kegiatan() {
   useEffect(() => {
     const fetchKegiatans = async () => {
       try {
-        const response = await axios.get('http://www.web-gws.my.id/api/kegiatan');
+        const response = await axios.get('https://www.web-gws.my.id/api/kegiatan');
         setKegiatans(response.data);
       } catch (err) {
         setError('Gagal memuat data kegiatan.');

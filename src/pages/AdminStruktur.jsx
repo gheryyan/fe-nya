@@ -203,7 +203,7 @@ const AdminStruktur = () => {
                   <TableCell>
                     {struktur.gambar && (
                       <img
-                        src={`http://www.web-gws.my.id${struktur.gambar}`}
+                        src={`https://www.web-gws.my.id${struktur.gambar}`}
                         alt={struktur.nama}
                         style={{ width: '100px', height: 'auto', borderRadius: '4px' }}
                       />

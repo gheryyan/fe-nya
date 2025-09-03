@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://www.web-gws.my.id/api",
+  baseURL: "https://www.web-gws.my.id/api",
 });
 
 // inject token sebelum request dikirim

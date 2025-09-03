@@ -31,7 +31,7 @@ export default function PpidList({ jenis }) {
   useEffect(() => {
     const fetchPpids = async () => {
       try {
-        const response = await api.get('http://www.web-gws.my.id/api/ppid');
+        const response = await api.get('https://www.web-gws.my.id/api/ppid');
         const data = response.data;
         setPpids(data);
 
@@ -56,7 +56,7 @@ export default function PpidList({ jenis }) {
   });
 
   const handleDownload = (filePath) => {
-    window.open(`http://www.web-gws.my.id${filePath}`, '_blank');
+    window.open(`https://www.web-gws.my.id${filePath}`, '_blank');
   };
 
   if (loading) {
@@ -118,7 +118,7 @@ export default function PpidList({ jenis }) {
                       variant="outlined"
                       size="small"
                       sx={{ mr: 1 }}
-                      href={`http://www.web-gws.my.id${item.file_path}`}
+                      href={`https://www.web-gws.my.id${item.file_path}`}
                       target="_blank"
                     >
                       <VisibilityIcon />
