@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import {
   Box,
   Typography,
@@ -33,7 +33,7 @@ export default function PpidForm() {
     setAlert({ show: false, message: '', severity: '' });
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/pengaduan', form);
+      const response = await api.post('http://www.web-gws.my.id/api/pengaduan', form);
       console.log('Pengaduan berhasil dikirim:', response.data);
       setAlert({ show: true, message: 'Permohonan/pengaduan Anda berhasil dikirim!', severity: 'success' });
       setForm({

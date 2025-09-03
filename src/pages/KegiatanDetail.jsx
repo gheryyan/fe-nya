@@ -18,7 +18,7 @@ export default function KegiatanDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/kegiatan/${id}`)
+      .get(`http://www.web-gws.my.id/api/kegiatan/${id}`)
       .then((res) => {
         setKegiatan(res.data);
         setLoading(false);
@@ -62,7 +62,7 @@ export default function KegiatanDetail() {
       <Box sx={{ my: 4 }}>
         <CardMedia
           component="img"
-          image={`http://localhost:8000${kegiatan.image}`}
+          image={`http://www.web-gws.my.id${kegiatan.image}`}
           alt={kegiatan.judul}
           sx={{ maxHeight: 400, maxWidth:900, objectFit: 'cover', borderRadius: '8px' }}
         />

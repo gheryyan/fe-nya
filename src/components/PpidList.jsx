@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import {
   Box,
   Typography,
@@ -31,7 +31,7 @@ export default function PpidList({ jenis }) {
   useEffect(() => {
     const fetchPpids = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/ppid');
+        const response = await api.get('http://www.web-gws.my.id/api/ppid');
         const data = response.data;
         setPpids(data);
 
@@ -56,7 +56,7 @@ export default function PpidList({ jenis }) {
   });
 
   const handleDownload = (filePath) => {
-    window.open(`http://127.0.0.1:8000${filePath}`, '_blank');
+    window.open(`http://www.web-gws.my.id${filePath}`, '_blank');
   };
 
   if (loading) {
@@ -118,7 +118,7 @@ export default function PpidList({ jenis }) {
                       variant="outlined"
                       size="small"
                       sx={{ mr: 1 }}
-                      href={`http://127.0.0.1:8000${item.file_path}`}
+                      href={`http://www.web-gws.my.id${item.file_path}`}
                       target="_blank"
                     >
                       <VisibilityIcon />

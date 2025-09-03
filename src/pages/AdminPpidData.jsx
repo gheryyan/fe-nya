@@ -1,6 +1,6 @@
 // src/pages/AdminPpidData.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from "../api";
 import {
   Box,
   Container,
@@ -42,7 +42,7 @@ export default function AdminPpidData() {
 
   const fetchPpids = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/ppid');
+      const response = await api.get('/ppid');
       setPpids(response.data);
     } catch (err) {
       setError('Gagal memuat data PPID.');
@@ -76,7 +76,7 @@ export default function AdminPpidData() {
     }
 
     try {
-      await axios.post('http://127.0.0.1:8000/api/ppid', formData, {
+      await api.post('/ppid', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setForm({ jenis: 'informasi_umum', judul: '', deskripsi_singkat: '', file: null });
@@ -90,7 +90,7 @@ export default function AdminPpidData() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/ppid/${deleteId}`);
+      await api.delete(`/ppid/${deleteId}`);
       fetchPpids();
       setOpen(false);
     } catch (err) {

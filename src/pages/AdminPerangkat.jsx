@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from "../api"; 
 import {
   Box,
   Typography,
@@ -30,9 +30,8 @@ const AdminPerangkat = () => {
 
   const fetchPerangkatDesa = async () => {
     try {
-      // PERBAIKAN: Ubah endpoint dari perangkat-desa menjadi perangkat
-      const response = await axios.get('http://127.0.0.1:8000/api/perangkat-desa');
-      setPerangkatDesa(response.data);
+      const response = await api.get('/perangkat-desa'); 
+      setPerangkatDesa(response.data.data ?? response.data);
     } catch (err) {
       setError('Gagal mengambil data perangkat desa.');
       console.error(err);
@@ -67,15 +66,13 @@ const AdminPerangkat = () => {
     try {
       if (formData.id) {
         data.append('_method', 'PUT');
-        // PERBAIKAN: Ubah endpoint dari perangkat-desa menjadi perangkat
-        await axios.post(`http://127.0.0.1:8000/api/perangkat-desa/${formData.id}`, data, {
+        await api.post(`/perangkat-desa/${formData.id}`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
         });
       } else {
-        // PERBAIKAN: Ubah endpoint dari perangkat-desa menjadi perangkat
-        await axios.post('http://127.0.0.1:8000/api/perangkat-desa', data, {
+        await api.post('/perangkat-desa', data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -92,8 +89,7 @@ const AdminPerangkat = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Yakin ingin menghapus perangkat desa ini?')) {
       try {
-        // PERBAIKAN: Ubah endpoint dari perangkat-desa menjadi perangkat
-        await axios.delete(`http://127.0.0.1:8000/api/perangkat-desa/${id}`);
+        await api.delete(`/perangkat-desa/${id}`);
         fetchPerangkatDesa();
       } catch (err) {
         console.error('Gagal menghapus perangkat desa:', err);
@@ -199,7 +195,7 @@ const AdminPerangkat = () => {
                   <TableCell>
                     {perangkat.foto && (
                       <img
-                        src={`http://127.0.0.1:8000${perangkat.foto}`}
+                        src={`http://www.web-gws.my.id${perangkat.foto}`}
                         alt={perangkat.nama}
                         style={{ width: '100px', height: 'auto', borderRadius: '4px' }}
                       />

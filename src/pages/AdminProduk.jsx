@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from "../api"; 
 import {
   Box,
   Container,
@@ -39,7 +39,7 @@ export default function AdminProduk() {
 
   const fetchProduks = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/produk');
+      const response = await api.get('/produk');
       setProduks(response.data);
     } catch (err) {
       setError('Gagal memuat data produk.');
@@ -85,9 +85,9 @@ export default function AdminProduk() {
     try {
       if (form.id) {
         formData.append('_method', 'PUT');
-        await axios.post(`http://127.0.0.1:8000/api/produk/${form.id}`, formData);
+        await api.post(`/produk/${form.id}`, formData);
       } else {
-        await axios.post('http://127.0.0.1:8000/api/produk', formData, {
+        await api.post('/produk', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
       }
@@ -102,7 +102,7 @@ export default function AdminProduk() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/produk/${deleteId}`);
+      await api.delete(`/produk/${deleteId}`);
       fetchProduks();
       setOpen(false);
     } catch (err) {
@@ -211,7 +211,7 @@ export default function AdminProduk() {
                 <TableCell>{produk.deskripsi_singkat}</TableCell>
                 <TableCell>{produk.harga}</TableCell>
                 <TableCell>
-                  <img src={`http://127.0.0.1:8000${produk.image}`} alt={produk.nama_produk} style={{ width: '100px', height: 'auto' }} />
+                  <img src={`http://www.web-gws.my.id${produk.image}`} alt={produk.nama_produk} style={{ width: '100px', height: 'auto' }} />
                 </TableCell>
                 <TableCell>
                   <Button onClick={() => handleEdit(produk)} variant="outlined" color="primary" size="small">

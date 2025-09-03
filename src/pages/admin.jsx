@@ -29,41 +29,30 @@ const drawerWidth = 240;
 const AdminPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const token = localStorage.getItem('token');
+
+  React.useEffect(() => {
+    if (!token) {
+      navigate('/admin/login', { replace: true });
+    }
+  }, [token, navigate]);
+
+  if (!token) return null;
 
   const handleLogout = async () => {
-  try {
-    // Langkah 1: Kirim permintaan logout ke server
-    await axios.post('logout'); 
-    
-    // Langkah 2: Bersihkan token dari localStorage
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('auth_token');
-    
-    // Langkah 3: HAPUS header Authorization secara manual dari axios
-    // Ini adalah langkah paling penting untuk mencegah masalah 401
-    delete axios.defaults.headers.common['Authorization'];
-    
-    // Langkah 4: Arahkan pengguna ke halaman login
-    navigate('/admin/login');
-  } catch (err) {
-    // Jika server merespons 401 (karena token sudah kedaluwarsa), 
-    // kita tetap jalankan proses logout di front-end
-    if (err.response && err.response.status === 401) {
-      console.log("Token sudah kedaluwarsa. Melanjutkan proses logout.");
-    } else {
-      console.error('Logout failed:', err);
-      alert('Logout failed. Silakan coba lagi.');
+    try {
+      await axios.post('http://www.web-gws.my.id/api/logout', {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+    } catch (err) {
+      console.warn("Logout error:", err.message);
+    } finally {
+      localStorage.removeItem('token');
+      delete axios.defaults.headers.common['Authorization'];
+      navigate('/admin/login', { replace: true });
     }
-    
-    // Pastikan token dan header dihapus dalam kondisi apapun
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('auth_token');
-    delete axios.defaults.headers.common['Authorization'];
-    
-    navigate('/admin/login');
-  }
-};
-
+  };
+  
   const menuItems = [
     { text: 'Kegiatan', icon: <EventNoteIcon />, path: '/admin/kegiatan' },
     { text: 'Lembaga Desa', icon: <PeopleIcon />, path: '/admin/perangkat' },

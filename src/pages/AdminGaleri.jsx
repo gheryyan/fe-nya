@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from "../api"; 
 import {
   Box,
   Container,
@@ -36,7 +36,7 @@ export default function AdminGaleri() {
 
   const fetchGaleris = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/galeri');
+      const response = await api.get('/galeri');
       setGaleris(response.data);
     } catch (err) {
       setError('Gagal memuat data galeri.');
@@ -68,7 +68,7 @@ export default function AdminGaleri() {
     }
 
     try {
-      await axios.post('http://127.0.0.1:8000/api/galeri', formData, {
+      await api.post('/galeri', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setForm({ judul: '', image: null });
@@ -82,7 +82,7 @@ export default function AdminGaleri() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/galeri/${deleteId}`);
+      await api.delete(`/galeri/${deleteId}`);
       fetchGaleris();
       setOpen(false);
     } catch (err) {
@@ -150,7 +150,7 @@ export default function AdminGaleri() {
                 <TableCell>
                   <CardMedia
                     component="img"
-                    image={`http://127.0.0.1:8000${galeri.image}`}
+                    image={`http://www.web-gws.my.id${galeri.image}`}
                     alt={galeri.judul}
                     sx={{ width: 100, height: 100, objectFit: 'cover' }}
                   />

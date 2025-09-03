@@ -39,7 +39,7 @@ export default function ProdukDetail() {
   useEffect(() => {
     const fetchProduk = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/produk/${id}`);
+        const response = await axios.get(`http://www.web-gws.my.id/api/produk/${id}`);
         setProduk(response.data);
       } catch (err) {
         setError("Gagal memuat detail produk.");
@@ -98,7 +98,7 @@ export default function ProdukDetail() {
           >
             <CardMedia
               component="img"
-              image={`http://127.0.0.1:8000${produk.image}`}
+              image={`http://www.web-gws.my.id${produk.image}`}
               alt={produk.nama_produk}
               sx={{
                 position: 'absolute',

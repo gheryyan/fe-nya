@@ -13,11 +13,11 @@ const StrukturDesa = () => {
         const fetchData = async () => {
             try {
                 // Fetch data for Struktur Desa
-                const strukturResponse = await axios.get('http://127.0.0.1:8000/api/struktur');
+                const strukturResponse = await axios.get('http://www.web-gws.my.id/api/struktur');
                 setStrukturDesa(strukturResponse.data);
 
                 // Fetch data for Perangkat Desa
-                const perangkatResponse = await axios.get('http://127.0.0.1:8000/api/perangkat-desa');
+                const perangkatResponse = await axios.get('http://www.web-gws.my.id/api/perangkat-desa');
                 setPerangkatDesa(perangkatResponse.data);
                 
             } catch (err) {
@@ -75,7 +75,7 @@ const StrukturDesa = () => {
                             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', boxShadow: 3 }}>
                                 <CardMedia
                                     component="img"
-                                    image={`http://127.0.0.1:8000${struktur.gambar}`}
+                                    image={`http://www.web-gws.my.id${struktur.gambar}`}
                                     alt={struktur.nama}
                                     sx={{ 
                                         height: 250, 
@@ -113,7 +113,7 @@ const StrukturDesa = () => {
                             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', boxShadow: 3 }}>
                                 <CardMedia
                                     component="img"
-                                    image={`http://127.0.0.1:8000${perangkat.foto}`}
+                                    image={`http://www.web-gws.my.id${perangkat.foto}`}
                                     alt={perangkat.nama}
                                     sx={{ 
                                         height: 250, 

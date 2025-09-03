@@ -1,7 +1,7 @@
 // src/pages/AdminStruktur.jsx
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from "../api";
 import {
   Box,
   Typography,
@@ -32,7 +32,7 @@ const AdminStruktur = () => {
 
   const fetchStrukturDesa = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/struktur?timestamp=${new Date().getTime()}`);
+      const response = await api.get(`/struktur?timestamp=${new Date().getTime()}`);
       setStrukturDesa(response.data);
     } catch (err) {
       setError('Gagal mengambil data struktur desa.');
@@ -68,18 +68,16 @@ const AdminStruktur = () => {
 
     try {
       if (formData.id) {
-        // Menggunakan axios.post dengan _method: 'PUT' untuk edit
         // karena FormData tidak mendukung method PUT/PATCH
         data.append('_method', 'PUT');
-        await axios.post(`http://127.0.0.1:8000/api/struktur/${formData.id}`, data, {
+        await api.post(`/struktur/${formData.id}`, data, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         });
         console.log('Data berhasil diubah!');
       } else {
-        // Menggunakan axios.post untuk tambah data baru
-        await axios.post('http://127.0.0.1:8000/api/struktur', data, {
+        await api.post('/struktur', data, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -97,7 +95,7 @@ const AdminStruktur = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Yakin ingin menghapus data struktur desa ini?')) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/struktur/${id}`);
+        await api.delete(`/struktur/${id}`);
         // Perbarui state secara langsung setelah berhasil dihapus
         setStrukturDesa(strukturDesa.filter(item => item.id !== id));
         console.log('Data berhasil dihapus');
@@ -205,7 +203,7 @@ const AdminStruktur = () => {
                   <TableCell>
                     {struktur.gambar && (
                       <img
-                        src={`http://127.0.0.1:8000${struktur.gambar}`}
+                        src={`http://www.web-gws.my.id${struktur.gambar}`}
                         alt={struktur.nama}
                         style={{ width: '100px', height: 'auto', borderRadius: '4px' }}
                       />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from "../api"; 
 import {
     Box,
     Typography,
@@ -57,7 +57,7 @@ const AdminPotensi = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/potensi');
+            const response = await api.get('/potensi');
             setPotensi(response.data);
             setLoading(false);
         } catch (err) {
@@ -121,10 +121,10 @@ const AdminPotensi = () => {
             if (formData.id) {
                 // Update existing
                 data.append('_method', 'PUT');
-                await axios.post(`http://127.0.0.1:8000/api/potensi/${formData.id}`, data);
+                await api.post(`/potensi/${formData.id}`, data);
             } else {
                 // Add new
-                await axios.post('http://127.0.0.1:8000/api/potensi', data);
+                await api.post('/potensi', data);
             }
             fetchData();
             handleClose();
@@ -136,7 +136,7 @@ const AdminPotensi = () => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/potensi/${currentId}`);
+            await api.delete(`/potensi/${currentId}`);
             fetchData();
             handleClose();
         } catch (err) {
@@ -180,7 +180,7 @@ const AdminPotensi = () => {
                             potensi.map((item) => (
                                 <TableRow key={item.id}>
                                     <TableCell>
-                                        <img src={`http://127.0.0.1:8000${item.image}`} alt={item.title} style={{ width: '100px', height: 'auto' }} />
+                                        <img src={`http://www.web-gws.my.id${item.image}`} alt={item.title} style={{ width: '100px', height: 'auto' }} />
                                     </TableCell>
                                     <TableCell>{item.category}</TableCell>
                                     <TableCell>{item.title}</TableCell>

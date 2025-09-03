@@ -29,7 +29,7 @@ export default function Potensi() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/potensi")
+      .get("http://www.web-gws.my.id/api/potensi")
       .then((res) => {
         setPotensi(res.data);
         setLoading(false);
@@ -86,7 +86,7 @@ export default function Potensi() {
                     {item.image && (
                       <CardMedia
                         component="img"
-                        image={`http://localhost:8000${item.image}`}
+                        image={`http://www.web-gws.my.id${item.image}`}
                         alt={item.title}
                         sx={{ height: 250, objectFit: 'cover' }}
                       />
@@ -132,7 +132,7 @@ export default function Potensi() {
                     {item.image && (
                       <CardMedia
                         component="img"
-                        image={`http://localhost:8000${item.image}`}
+                        image={`http://www.web-gws.my.id${item.image}`}
                         alt={item.title}
                         sx={{ height: 250, objectFit: 'cover' }}
                       />

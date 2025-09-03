@@ -28,22 +28,35 @@ export default function LoginPage() {
     setError(null);
 
     try {
-      // Sanctum tidak lagi memerlukan /sanctum/csrf-cookie
-      // jika Anda menggunakan konfigurasi dengan domain yang benar
-      // await axios.get('/sanctum/csrf-cookie'); 
+      const response = await axios.post(
+        'http://www.web-gws.my.id/api/login',
+        {
+          email: form.email,
+          password: form.password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        }
+      );
 
-      const response = await axios.post('http://127.0.0.1:8000/api/login', form);
-      
-      // Simpan token yang dikirimkan dari API ke localStorage
-      localStorage.setItem('auth_token', response.data.access_token);
-      
-      console.log('Login berhasil:', response.data.user);
-      
-      navigate('/admin/kegiatan'); 
-      
-    } catch (err) {
-      console.error('Login gagal:', err.response);
-      setError('Email atau password salah. Silakan coba lagi.');
+      console.log('Login sukses:', response.data);
+
+      if (response.data.access_token) {
+        localStorage.setItem('token', response.data.access_token);
+      }
+
+      navigate('/admin/kegiatan');
+    } catch (error) {
+      if (error.response) {
+        console.error('Login gagal:', error.response.data);
+        setError(error.response.data.message || 'Login gagal!');
+      } else {
+        console.error('Error:', error.message);
+        setError('Terjadi kesalahan pada server');
+      }
     } finally {
       setLoading(false);
     }
@@ -51,11 +64,20 @@ export default function LoginPage() {
 
   return (
     <Container component="main" maxWidth="xs" sx={{ py: 8 }}>
-      <Paper elevation={3} sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Paper
+        elevation={3}
+        sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
         <Typography component="h1" variant="h5">
           Login Admin
         </Typography>
-        {error && <Alert severity="error" sx={{ mt: 2, width: '100%' }}>{error}</Alert>}
+
+        {error && (
+          <Alert severity="error" sx={{ mt: 2, width: '100%' }}>
+            {error}
+          </Alert>
+        )}
+
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1, width: '100%' }}>
           <TextField
             margin="normal"
@@ -69,6 +91,7 @@ export default function LoginPage() {
             value={form.email}
             onChange={handleChange}
           />
+
           <TextField
             margin="normal"
             required
@@ -81,6 +104,7 @@ export default function LoginPage() {
             value={form.password}
             onChange={handleChange}
           />
+
           <Button
             type="submit"
             fullWidth

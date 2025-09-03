@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import {
   Box,
   Container,
@@ -26,7 +26,7 @@ export default function AdminPpidPengaduan() {
 
   const fetchPengaduans = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/pengaduan');
+      const response = await api.get('/pengaduan');
       setPengaduans(response.data);
     } catch (err) {
       setError('Gagal memuat data pengaduan.');
@@ -42,7 +42,7 @@ export default function AdminPpidPengaduan() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`http://127.0.0.1:8000/api/pengaduan/${id}`, { status: newStatus });
+      await api.put(`/pengaduan/${id}`, { status: newStatus });
       fetchPengaduans();
     } catch (err) {
       setError('Gagal memperbarui status.');

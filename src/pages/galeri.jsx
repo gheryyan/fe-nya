@@ -20,7 +20,7 @@ export default function Galeri() {
   useEffect(() => {
     const fetchGaleris = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/galeri');
+        const response = await axios.get('http://www.web-gws.my.id/api/galeri');
         setGaleris(response.data);
       } catch (err) {
         setError('Gagal memuat data galeri.');
@@ -73,7 +73,7 @@ export default function Galeri() {
                   <Card raised sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <CardMedia
                       component="img"
-                      image={`http://127.0.0.1:8000${item.image}`}
+                      image={`http://www.web-gws.my.id${item.image}`}
                       alt={item.judul}
                       sx={{ height: 200, objectFit: 'cover' }}
                     />

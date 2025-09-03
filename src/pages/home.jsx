@@ -19,7 +19,7 @@ function Home() {
   useEffect(() => {
     const fetchKegiatans = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/kegiatan');
+        const response = await axios.get('http://www.web-gws.my.id/api/kegiatan');
         setKegiatans(response.data.slice(0, 3)); 
       } catch (err) {
         setError('Gagal memuat data kegiatan.');
@@ -102,9 +102,9 @@ const DataCard = ({ count, label }) => (
                   </Link>
                 </Grid>
                 <Grid item xs={6}>
-                  <Link to ="/galeri" style={{textDecoration:'none'}}>
-                    <ExploreCard title="INFOGRAFIS" icon={EqualizerIcon} />
-                  </Link>
+                  <a href="#administrasi" style={{textDecoration:'none'}}>
+                    <ExploreCard title="INFOGRAFIS" icon={EqualizerIcon} />
+                  </a>
                 </Grid>
                 <Grid item xs={6}>
                   <Link to="/produk" style={{textDecoration:'none'}}>
@@ -146,7 +146,7 @@ const DataCard = ({ count, label }) => (
                     <CardMedia
                       component="img"
                       className="card-image"
-                      image={`http://127.0.0.1:8000${kegiatan.image}`}
+                      image={`http://www.web-gws.my.id${kegiatan.image}`}
                       alt={kegiatan.judul}
                     />
                     <CardContent className="card-content">
